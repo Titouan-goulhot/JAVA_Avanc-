@@ -28,8 +28,10 @@ public class CharacterController {
 
     //ajouter un Personnage
     @PostMapping(value = "/characters")
-    public void ajouterCharacter(@RequestBody Character character) {
+    public Character ajouterCharacter(@RequestBody Character character) {
         characterDao.save(character);
+
+        return character;
 
     }
 

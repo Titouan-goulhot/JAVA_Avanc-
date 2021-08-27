@@ -44,16 +44,18 @@ public class CharacterDaoI implements CharacterDao {
 
 
     public ResponseEntity update(Character character) {
+        //"Cherche le character par son ID, s'il existe" ->...
         findById(character.getId()).ifPresent(c -> {
+            // findById(character.getId()).setName(character.getName());
             c.setName(character.getName());
+            //findById(character.getId()).setCharacterClass(character.getCharacterClass());
+            c.setCharacterClass(character.getCharacterClass());
+            //findById(character.getId()).setLife(character.getLife());
+            c.setLife(character.getLife());
         } );
 
+        // ResponseEntity est une manière plus rapide et plus sûre de gérer des exceptions sans que cela ne génère d'erreur.
 
-//        if (findById(character.getId()).isPresent()) {
-//            findById(character.getId()).setName(character.getName());
-//            findById(character.getId()).setCharacterClass(character.getCharacterClass());
-//            findById(character.getId()).setLife(character.getLife());
-//        }
         return findById(character.getId()).isPresent()
                 ? new ResponseEntity(character, HttpStatus.OK)
                 : new ResponseEntity("Le personnage à mettre à jour n'existe pas", HttpStatus.BAD_REQUEST);
