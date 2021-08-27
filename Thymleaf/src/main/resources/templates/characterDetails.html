@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Character List</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <title>Details of your Hero</title>
+</head>
+<body>
+<div>
+  <table border="1">
+    <tr>
+      <th>First Name</th>
+      <th>Class</th>
+      <th>Health</th>
+      <th>ID</th>
+
+    </tr>
+    <tr>
+      <td th:utext="${personnage.name}"></td>
+      <td th:utext="${personnage.characterClass}"></td>
+      <td th:utext="${personnage.life}"></td>
+      <td th:utext="${personnage.id}"></td>
+
+      <div th:if="${personnage.characterClass == warrior}">
+          <img th:href="@{https://shanesneyd.com/wp-content/uploads/2020/01/019E8826-EAA5-46D6-B511-25D8F3134750-800x600.jpeg}"/>
+      </div>
+
+    </tr>
+  </table>
+</div>
+</body>
+</html>
