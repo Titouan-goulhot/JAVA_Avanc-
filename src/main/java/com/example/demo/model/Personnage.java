@@ -1,20 +1,30 @@
 package com.example.demo.model;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
-public class Character {
+@Entity
+@Table(name = "personnages")
+public class Personnage {
 
     //_________________________________________________ATTRIBUTS________________________________________________________________________________
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    @NotBlank(message = "Name is requiered")
+    @Column(name = "name", length = 255, nullable = false)
     private String name;
+    @Column(name = "characterClass", length = 255, nullable = false)
     private String characterClass;
+    @Column(name = "life", length = 20, nullable = false)
     private int life;
 
     //_________________________________________________CONSTRUCTEUR________________________________________________________________________________
 
-    public Character(){
+    public Personnage(){
 
     }
 
-    public Character(int id, String name, String characterClass, int life) {
+    public Personnage(Integer id, String name, String characterClass, int life) {
         this.id = id;
         this.name = name;
         this.characterClass = characterClass;
@@ -23,12 +33,12 @@ public class Character {
 
     //_________________________________________________GETTERS & SETTERS________________________________________________________________________________
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

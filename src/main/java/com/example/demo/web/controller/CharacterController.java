@@ -1,6 +1,6 @@
 package com.example.demo.web.controller;
-import com.example.demo.dao.CharacterDaoI;
-import com.example.demo.model.Character;
+import com.example.demo.dao.CharacterDao;
+import com.example.demo.model.Personnage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,41 +13,41 @@ public class CharacterController {
 
 
     @Autowired
-    private CharacterDaoI characterDao;
+    private CharacterDao characterDao;
 
     // Affichage liste characters
     @RequestMapping(value = "/characters", method = RequestMethod.GET)
-    public List  <Character> listCharacter() {
+    public List  <Personnage> listCharacter() {
         return characterDao.findAll();
     }
     // Affichage personnage Par ID
     @GetMapping(value = "/characters/{id}")
-    public Optional<Character> afficherUnPersonnage(@PathVariable int id) {
+    public Optional<Personnage> afficherUnPersonnage(@PathVariable Integer id) {
         return characterDao.findById(id);
     }
 
     //ajouter un Personnage
     @PostMapping(value = "/characters")
-    public Character ajouterCharacter(@RequestBody Character character) {
-        characterDao.save(character);
+    public Personnage ajouterCharacter(@RequestBody Personnage personnage) {
+        characterDao.save(personnage);
 
-        return character;
-
-    }
-
-    //Modification Personnage
-    @PutMapping(value = "/characters/{id}")
-    public ResponseEntity<Character> updateCharacter(@PathVariable int id, @RequestBody Character character ){
-        characterDao.update(character);
-
-        return null;
+        return personnage;
 
     }
+
+//    //Modification Personnage
+//    @PutMapping(value = "/characters/{id}")
+//    public ResponseEntity<Personnage> updateCharacter(@PathVariable Integer id, @RequestBody Personnage personnage){
+//        characterDao.update(personnage);
+//
+//        return null;
+//
+//    }
 
     // Suppression d'un Personnage
     @DeleteMapping("/characters/{id}")
-    public void deleteCharacter(@PathVariable int id){
-      characterDao.delete(id);
+    public void deleteCharacter(@PathVariable Integer id){
+      characterDao.deleteById(id);
     }
 
 }

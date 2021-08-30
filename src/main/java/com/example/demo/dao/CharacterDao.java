@@ -1,18 +1,18 @@
 package com.example.demo.dao;
-import com.example.demo.model.Character;
-import org.springframework.http.ResponseEntity;
+import com.example.demo.model.Personnage;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 
-public interface CharacterDao {
+public interface CharacterDao extends JpaRepository<Personnage, Integer> {
 
-    public List <Character>  findAll();
-    public Optional<Character> findById(int id);
-    public Character save(Character character);
-    public ResponseEntity update(Character character);
-    public Character delete(int id);
+    public List <Personnage>  findAll();
+    public Optional<Personnage> findById(Integer id);
+    public Personnage save(Personnage character);
+//    public ResponseEntity update(Personnage character);
+    public void deleteById(Integer id);
 
 
 }
