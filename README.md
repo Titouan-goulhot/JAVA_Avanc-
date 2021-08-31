@@ -4,7 +4,7 @@
 
 * *@Configuration* : Sert à marquer une classe comme étant la source qe l'on va utiliser pour le *@Bean*
 
-* *@Bean* : Une annotation permettant de spécifier ce qui doit être retourné par l'environnement de Spring 
+* *@Bean* : Un composant JavaBean est une simple classe Java qui respecte certaines conventions sur le nommage, la construction et le comportement des méthodes. Le respect de ces conventions rend possible l'utilisation, la réutilisation, le remplacement et la connexion de JavaBeans par des outils de développement.
 
 * *@Autowired* : Permet de connecter différentes parties de l'application ensemble (constructeur et/ou méthodes d'un composant) // Injecte une instance lorsqu'on en à besoin
 
