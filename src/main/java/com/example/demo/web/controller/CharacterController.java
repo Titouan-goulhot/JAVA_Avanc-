@@ -35,10 +35,10 @@ public class CharacterController {
 
     }
 
-//    //Modification Personnage
-//    @PutMapping(value = "/characters/{id}")
-//    public ResponseEntity<Personnage> updateCharacter(@PathVariable Integer id, @RequestBody Personnage personnage){
-//        characterDao.update(personnage);
+////    //Modification Personnage
+//    @PostMapping(value = "/characters/{id}")
+//    public @ResponseBody ResponseEntity<Personnage> updateCharacter(@PathVariable Integer id, @RequestBody Personnage personnage){
+//        characterDao.save(personnage);
 //
 //        return null;
 //
